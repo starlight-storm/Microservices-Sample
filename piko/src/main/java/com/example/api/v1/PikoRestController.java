@@ -16,20 +16,15 @@ public class PikoRestController {
     RestTemplate restTemplate;
 	
     @Value("${apple.api:http://localhost:3333}")
-	// @Value("${apple.api:http://apple}")
     URI appleApi;
     
     @Value("${pen.api:http://localhost:4444}")
-	// @Value("${pen.api:http://pen}")
     URI penApi;
 	
 	@GetMapping("api/v1/piko")
 	public String execute() {
-		
 		String apple = getRestData(appleApi, "api/v1/apple");
-		
 		String pen = getRestData(penApi, "api/v1/pen");
-		
 		return apple + pen;
 	}
 
