@@ -11,13 +11,13 @@ import com.example.business.domain.Employee;
 
 @Mapper
 public interface EmployeeRepository {
-	@Select("SELECT EMPLOYEE_ID,NAME,MAIL FROM EMPLOYEE")
+	@Select("SELECT ID,NAME,MAIL FROM EMPLOYEE")
 	List<Employee> findAll();
 
-	@Select("SELECT * FROM EMPLOYEE WHERE EMPLOYEE_ID = #{employeeId}")
+	@Select("SELECT * FROM EMPLOYEE WHERE ID = #{employeeId}")
 	Employee findById(int employeeId);
 
 	@Insert("INSERT INTO EMPLOYEE(NAME,MAIL) VALUES(#{name},#{mail})")
-	@SelectKey(statement="call identity()", keyProperty="employeeId", before=false, resultType=int.class)
+	@SelectKey(statement="call identity()", keyProperty="id", before=false, resultType=int.class)
 	int create(Employee emp);
 }
