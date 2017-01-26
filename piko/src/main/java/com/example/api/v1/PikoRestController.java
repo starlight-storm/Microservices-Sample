@@ -4,6 +4,7 @@ import java.net.URI;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 public class PikoRestController {
 
 	@Autowired
+	@LoadBalanced
     RestTemplate restTemplate;
 	
     @Value("${apple.api:http://localhost:3333}")
