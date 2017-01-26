@@ -12,5 +12,4 @@ public class AppleRestController {
 	public String execute() {
 		return "Apple";
 	}
-	
 }

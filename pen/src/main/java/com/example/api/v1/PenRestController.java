@@ -11,6 +11,5 @@ public class PenRestController {
 	@GetMapping("api/v1/pen")
 	public String execute() {
 		return "Pen";
-	}
-	
+	}	
 }
